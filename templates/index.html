@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/styles.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="/OktoberfestAirbnbSearch/static/styles/styles.css"> -->
+    <title>Oktoberfest Airbnb Searcher</title>
+</head>
+<body>
+    <div class="heading">
+        <header class="header">
+            <h1>Oktoberfest 2024 Airbnb Searcher</h1>
+            <h3>September 21 - October 6</h3>
+        </header>
+        <p>Looking for somewhere to stay in Munich during Oktoberfest?</p>
+        <p>Just tell us what you are looking for and we will send you frequent updates of <b>Airbnb</b> listings that match your criteria, including the commute to Oktoberfest as calculated by <b>Google Maps</b>.</p>
+        <p><em><b>Disclaimer</b>: Since airbnb does not provide the exact location until booking, we base the commute off of the rough location available at the time of the search.</em></p>
+    </div>
+    <form method="POST">
+        <fieldset class="criteria"><label>Criteria</label></fieldset>
+        <fieldset>
+            <label for="checkin">Check In?* <input type="date" id="checkin" name="checkin" required></label>
+            <label for="checkout">Check Out?* <input type="date" id="checkout" name="checkout" required></label>
+        </fieldset>
+        <fieldset>
+            <label for="guests">Guests* <input type="number" id="guests" name="guests" min="0" max="16" required></label>
+            <label for="rooms">Rooms* <input type="number" id="rooms" name="rooms" min="0" max="10" required></label>
+            <label for="bathrooms">Bathrooms <input type="number" id="bathrooms" name="bathrooms" min="0" max="10"></label>
+        </fieldset>
+        <fieldset>
+            <label for="budget">Budget* £ <input type="number" id="budget" name="budget" min="1" required></label>
+        </fieldset>
+        <fieldset>
+            <label class="legend">Do you want to say at an airbnb favourite? </label>
+            <label for="yes-favourite" class="yn"><input type="radio" value="yes" id="yes-favourite" name="favourite" checked> Yes </label>
+            <label for="no-favourite" class="yn"><input type="radio" value="no" id="no-favourite" name="favourite"> No </label>
+        </fieldset>
+        <fieldset>
+            <label class="legend">Do you want to find an entire home? </label>
+            <label for="yes-entire" class="yn"><input type="radio" value="yes" id="yes-entire" name="entire" checked> Yes </label>
+            <label for="no-entire" class="yn"><input type="radio" value="no" id="no-entire" name="entire"> No </label>
+        </fieldset>
+        <fieldset class="settings"><label>Email Settings</label></fieldset>
+        <fieldset>
+            <label for="frequency" class="legend">How often would you like to be updated? </label>
+            <select id="frequency" name="frequency">
+                <option value="" disabled selected>Please select a frequency</option>
+                <option value="Everyday">Everyday</option>
+                <option value="Every 3 days">Every 3 days</option>
+                <option value="Every week">Every week</option>
+                <option value="Every other week">Every other week</option>
+            </select>
+        </fieldset>
+        <fieldset>
+            <label for="email" class="legend">Please enter the email where you would like to recieve the updates: </label>
+            <input type="email" name="email">
+        </fieldset>
+        <div class="end">
+            <p>Once you have filled in your criteria and confirmed your email, click submit and you will recieve regular updates on airbnb listings!</p>
+            <button type="submit" id="submit" class="submit">Submit</button>
+        </div>
+    </form>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
