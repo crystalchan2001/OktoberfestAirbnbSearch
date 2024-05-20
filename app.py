@@ -5,6 +5,8 @@ import datetime
 import asyncio
 
 
+app = Flask(__name__)
+
 async def formGet():
     variableNames = ["guests", "rooms", "checkin", "checkout", "bathrooms", "budget", "favouriteStr", "entireHomeStr", "frequency", "email"]
     tasks = [str(request.form.get(var)) for var in variableNames]
