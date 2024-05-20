@@ -17,7 +17,7 @@
         <p>Just tell us what you are looking for and we will send you frequent updates of <b>Airbnb</b> listings that match your criteria, including the commute to Oktoberfest as calculated by <b>Google Maps</b>.</p>
         <p><em><b>Disclaimer</b>: Since airbnb does not provide the exact location until booking, we base the commute off of the rough location available at the time of the search.</em></p>
     </div>
-    <form method="POST">
+    <form id ="myform" method="POST">
         <fieldset class="criteria"><label>Criteria</label></fieldset>
         <fieldset>
             <label for="checkin">Check In?* <input type="date" id="checkin" name="checkin" required></label>
@@ -26,7 +26,15 @@
         <fieldset>
             <label for="guests">Guests* <input type="number" id="guests" name="guests" min="0" max="16" required></label>
             <label for="rooms">Rooms* <input type="number" id="rooms" name="rooms" min="0" max="10" required></label>
-            <label for="bathrooms">Bathrooms <input type="number" id="bathrooms" name="bathrooms" min="0" max="10"></label>
+            <label for="bathrooms">Bathrooms </label>        
+                <select id="bathrooms" name="bathrooms">
+                <option value="Any" selected>Any</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
         </fieldset>
         <fieldset>
             <label for="budget">Budget* £ <input type="number" id="budget" name="budget" min="1" required></label>
@@ -45,8 +53,7 @@
         <fieldset>
             <label for="frequency" class="legend">How often would you like to be updated? </label>
             <select id="frequency" name="frequency">
-                <option value="" disabled selected>Please select a frequency</option>
-                <option value="Everyday">Everyday</option>
+                <option value="Everyday" selected>Everyday</option>
                 <option value="Every 3 days">Every 3 days</option>
                 <option value="Every week">Every week</option>
                 <option value="Every other week">Every other week</option>
@@ -59,6 +66,7 @@
         <div class="end">
             <p>Once you have filled in your criteria and confirmed your email, click submit and you will recieve regular updates on airbnb listings!</p>
             <button type="submit" id="submit" class="submit">Submit</button>
+            <p id="message">Some message here</p>
         </div>
     </form>
     <script src="{{ url_for('static', filename='script.js') }}"></script>
