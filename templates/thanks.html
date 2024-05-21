@@ -1,21 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/styles.css') }}">
-    <!-- <link rel="stylesheet" type="text/css" href="/OktoberfestAirbnbSearch/static/styles/styles.css"> -->
-    <title>Thank you!</title>
-</head>
-<body>
+<!-- Child Template -->
+{% extends "base.html" %} 
+{% block title %} Thank you! {% endblock %}
+{% block body%}
     <div class="heading">
-        <header class="header">
-            <h1>Thank you for submitting this form!</h1>
-            {% if email %}
-                <h3>Check your inbox for the first email to {{ email }}!</h3>
+        <header>
+            <h2>Thank you for submitting this form!</h2>
+            {% if formIn %}
+                <h3>Check your inbox for the first email to {{ formIn[0] }}!</h3>
+                <h4>You will receive updates {{ formIn[9] | lower }} for accomodation in Munich between {{ formIn[1] }} and {{ formIn[2] }}</h4>
             {% else %}
                 <h3>Check your inbox for the first email!</h3>
             {% endif %} 
-        </div>    
-</body>
-
+        </header> 
+    </div>    
+{% endblock %}

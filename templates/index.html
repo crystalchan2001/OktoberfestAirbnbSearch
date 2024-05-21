@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/styles.css') }}">
-    <!-- <link rel="stylesheet" type="text/css" href="/OktoberfestAirbnbSearch/static/styles/styles.css"> -->
-    <title>Oktoberfest Airbnb Searcher</title>
-</head>
-<body>
+<!-- Child Templarw -->
+{% extends "base.html" %} 
+{% block title %} Oktoberfest Airbnb Searcher {% endblock %}
+{% block body %}
     <div class="heading">
-        <header class="header">
-            <h1>Oktoberfest 2024 Airbnb Searcher</h1>
-            <h3>September 21 - October 6</h3>
-        </header>
         <p>Looking for somewhere to stay in Munich during Oktoberfest?</p>
         <p>Just tell us what you are looking for and we will send you frequent updates of <b>Airbnb</b> listings that match your criteria, including the commute to Oktoberfest as calculated by <b>Google Maps</b>.</p>
         <p><em><b>Disclaimer</b>: Since airbnb does not provide the exact location until booking, we base the commute off of the rough location available at the time of the search.</em></p>
@@ -69,6 +59,5 @@
             <p id="message">Some message here</p>
         </div>
     </form>
-    <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
-</html>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+{% endblock %}

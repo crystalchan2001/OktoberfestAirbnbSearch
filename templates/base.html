@@ -1,0 +1,20 @@
+<!-- Parent Template -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='styles/styles.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="/OktoberfestAirbnbSearch/static/styles/styles.css"> -->
+    <title>{% block title %} {% endblock %}</title>
+    {% block head %}
+    {% endblock %}
+</head>
+<body>
+    <header class="header">
+        <h1>Oktoberfest 2024 Airbnb Searcher</h1>
+        <h3>September 21 - October 6</h3>
+    </header>
+    {% block body %} {% endblock %}
+</body>
+</html>
