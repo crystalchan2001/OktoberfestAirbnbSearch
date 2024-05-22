@@ -55,6 +55,14 @@ fieldset {
     margin-bottom: 5px;
 }
 
+.travel {
+    display: block;
+    margin: auto;
+}
+
+.travel:hover, .yn:hover {
+    color: grey;
+}
 
 button.submit {
     display: block;

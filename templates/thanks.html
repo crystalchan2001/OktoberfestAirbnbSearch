@@ -7,8 +7,9 @@
             <h2>Thank you for submitting this form!</h2>
             {% if formIn %}
                 <h3>Check your inbox for the first email to {{ formIn[0] }}!</h3>
-                <h4>You will receive updates {{ formIn[9] | lower }} for accomodation in Munich between {{ formIn[1] }} and {{ formIn[2] }}</h4>
-            {% else %}
+                <h4>You will receive updates {{ formIn[9] | lower }} for accomodation in Munich between {{ formIn[1] }} and {{ formIn[2] }}.</h4>
+                <p>{{ formIn }}</p>
+                {% else %}
                 <h3>Check your inbox for the first email!</h3>
             {% endif %} 
         </header> 

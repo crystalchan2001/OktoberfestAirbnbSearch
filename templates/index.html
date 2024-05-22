@@ -14,8 +14,8 @@
             <label for="checkout">Check Out?* <input type="date" id="checkout" name="checkout" required></label>
         </fieldset>
         <fieldset>
-            <label for="guests">Guests* <input type="number" id="guests" name="guests" min="0" max="16" required></label>
-            <label for="rooms">Rooms* <input type="number" id="rooms" name="rooms" min="0" max="10" required></label>
+            <label for="guests">Guests* <input type="number" id="guests" name="guests" min="0" max="16" placeholder=" (1-16)" required></label>
+            <label for="rooms">Rooms* <input type="number" id="rooms" name="rooms" min="0" max="10" placeholder=" (1-10)" required></label>
             <label for="bathrooms">Bathrooms </label>        
                 <select id="bathrooms" name="bathrooms">
                 <option value="Any" selected>Any</option>
@@ -28,6 +28,13 @@
         </fieldset>
         <fieldset>
             <label for="budget">Budget* £ <input type="number" id="budget" name="budget" min="1" required></label>
+        </fieldset>
+        <fieldset>
+            <label class="legend">Choose either maximum commute time to/maximum distance from Oktoberfest</label>
+            <label for="commute" class="travel"><input type="radio" value="commute" id="commute" name="travel" checked> Maximum Commute 
+                <input type="number" id="commuteInput" name="commuteInput" min="1" max="120" placeholder=" (1-120)"> minutes </label>
+            <label for="distance" class="travel"><input type="radio" value="distance" id="distance" name="travel"> Maxmimum Distance 
+                <input type="number" id="travelInput" name="travelInput" min="1" max="20" placeholder=" (1-20)"> km </label>
         </fieldset>
         <fieldset>
             <label class="legend">Do you want to say at an airbnb favourite? </label>

@@ -13,17 +13,6 @@ app.secret_key = b'95cfea064e940d1f09e3bd12b82eaa95a3cf59796af5cead02bba7686cd72
 app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://<username>:<password>@<server>:5432/<db_name>"
 db = SQLAlchemy(app)
 
-# async def formGet():
-#     variableNames = ["guests", "rooms", "checkin", "checkout", "bathrooms", "budget", "favouriteStr", "entireHomeStr", "frequency", "email"]
-#     tasks = [str(request.form.get(var)) for var in variableNames]
-#     results = await asyncio.gather(*tasks)
-#     actualResults = []
-#     for result in results:
-#         actual = await result
-#         print("Awaiting task...")
-#         actualResults.append(actual)
-#     return actualResults
-
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':        
@@ -37,7 +26,12 @@ def index():
         entireHomeStr = str(request.form['entire'])
         frequency = str(request.form['frequency'])
         email = str(request.form['email'])
-        session['formInput'] = [email, checkin, checkout, guests, rooms, bathrooms, budget, favouriteStr, entireHomeStr, frequency]
+        travel = request.form['travel']
+        if travel == 'distance':
+            maxTravel = request.form['travelInput']
+        else:
+            maxTravel = request.form['commuteInput']
+        session['formInput'] = [email, checkin, checkout, guests, rooms, bathrooms, budget, favouriteStr, entireHomeStr, frequency, travel, maxTravel]
 
         # cmd = [
         #     'python',
@@ -70,5 +64,6 @@ def thanks():
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
+
 if __name__ == '__main__':
     app.run(debug=True)
